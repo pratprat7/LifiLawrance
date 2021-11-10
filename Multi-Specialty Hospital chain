@@ -1,0 +1,28 @@
+//Create Table Statement for the table containing all data
+
+CREATE TABLE PatientDetails(
+Customer_Name VARCHAR(255) NOT NULL PRIMARY KEY,
+Customer_ID VARCHAR(18) NOT NULL,
+Open_Date DATE NOT NULL,
+Last_Consulted_Date DATE NOT NULL,
+Vaccination_Id CHAR(5),
+Dr_Name CHAR(255),
+State CHAR(5),
+Country CHAR(5),
+DOB DATE,
+Is_Active CHAR(1)
+);
+
+//For Developers to know what all the places the Customer Data is available.
+
+SELECT DISTINCT(COUNTRY) from PatientDetails;
+
+//For creating different tables for different countries
+//For ex:
+
+CREATE TABLE Table_India AS SELECT * FROM PatientDetails WHERE COUNTRY=’INDIA”;
+
+//To Read Data from Files:
+//For ex, To check last consulted date of a active customer
+
+SELECT Customer_Name, Customer_ID, Last_Consulted_Date FROM Table_India WHERE Is_Active=”A”;
